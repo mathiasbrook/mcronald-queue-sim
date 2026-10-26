@@ -7,6 +7,7 @@ public static final int time = 1080;
    
  private static int tl = 0;
  private static int tw = 0;
+ private static int served = 0;
   
   private static int LQ = 0;
  private static int longestWait = 0;
@@ -27,7 +28,8 @@ public static final int time = 1080;
            tw += x;
            if (x > longestWait)
               longestWait = x;
-           queue.poll();}
+           queue.poll();
+           served++;}
         
         if (cookTime > 0)
            cookTime--;
@@ -35,8 +37,9 @@ public static final int time = 1080;
            x.increment();
         display(queue, i);}
      
-     System.out.println("Total customers served = " + tl);
-     System.out.println("Average wait time = " + ((tw*1.0)/tl));
+     System.out.println("Total customers = " + tl);
+     System.out.println("Total customers served = " + served);
+     System.out.println("Average wait time = " + ((tw*1.0)/served));
      System.out.println("Longest wait time = " + longestWait);
      System.out.println("Longest queue = " + LQ);}
   
